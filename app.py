@@ -38,7 +38,8 @@ engine = create_engine(DB_URL)
 @st.cache_data(ttl=60)
 def get_resultados():
     query = """
-        SELECT *
+        SELECT id, user_id, course_id, cmid, modelo,
+       total_tokens, costo_total_usd, fecha, estado
         FROM ia_retroalimentaciones_tareas
         WHERE estado IN (0,1,3)
         ORDER BY fecha DESC
@@ -167,7 +168,7 @@ with tab1:
     df_tabla = df_display[[ 
         "id","username","nombre_curso","nombre_actividad",
         "modelo","total_tokens","costo_total_usd","fecha","estado"
-    ]].head(2000)   # 🔥 límite
+    ]].head(100)   # 🔥 límite
     
     ag.AgGrid(
         df_tabla,
