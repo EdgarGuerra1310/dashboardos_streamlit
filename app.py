@@ -16,6 +16,11 @@ import st_aggrid as ag
 #DB_PORT = os.getenv("DB_PORT")
 
 import streamlit as st
+# =========================================================
+# ================== STREAMLIT UI =========================
+# =========================================================
+st.set_page_config(layout="wide", page_title="Dashboard Chat_BIAE")
+st.title("Dashboard Chat_BIAE - Retroalimentaciones Optimizado")
 
 DB_NAME = st.secrets["DB_NAME"]
 DB_USER = st.secrets["DB_USER"]
@@ -76,11 +81,7 @@ df_resultados["nombre_actividad"] = df_resultados["nombre_actividad"].fillna(
     df_resultados["cmid"].astype(str)
 )
 
-# =========================================================
-# ================== STREAMLIT UI =========================
-# =========================================================
-st.set_page_config(layout="wide", page_title="Dashboard Chat_BIAE")
-st.title("Dashboard Chat_BIAE - Retroalimentaciones Optimizado")
+
 
 # ================== SIDEBAR ==============================
 # ================== SIDEBAR ==============================
