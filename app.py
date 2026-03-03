@@ -164,11 +164,13 @@ tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
 with tab1:
     st.subheader("Tabla de resultados")
 
+    df_tabla = df_display[[ 
+        "id","username","nombre_curso","nombre_actividad",
+        "modelo","total_tokens","costo_total_usd","fecha","estado"
+    ]].head(2000)   # 🔥 límite
+    
     ag.AgGrid(
-        df_display[[
-            "id","username","nombre_curso","nombre_actividad",
-            "modelo","total_tokens","costo_total_usd","fecha","estado"
-        ]],
+        df_tabla,
         height=600,
         fit_columns_on_grid_load=True,
         enable_enterprise_modules=False
